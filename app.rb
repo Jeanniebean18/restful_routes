@@ -39,6 +39,7 @@ require "active_support/core_ext/date/calculations.rb"
 require 'active_support/core_ext/object/blank'
 
 require_relative "models/user.rb"
+require_relative "models/story.rb"
 
 
 
@@ -50,6 +51,7 @@ ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 #___________________________________________________________________________________________________________
 
 require_relative "controllers/users.rb"
+require_relative "controllers/stories.rb"
 
 
 # Database
