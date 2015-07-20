@@ -1,0 +1,10 @@
+<%= @owner.errors.full_messages %>
+
+<h1>Hi. Tell us about yourself. </h1> 
+
+<form action="/users" method="post" >
+  <p> Name (required): <input type="text" name="name" value="<%= @user.name %>" required></p>
+  <p> Email: <input type="email" name="email" value="<%= @user.email %>" required></p>
+  <p> <input type="submit" value="submit"></p>
+  <input type="hidden" name="_method" value="put">
+</form>
