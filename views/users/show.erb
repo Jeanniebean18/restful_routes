@@ -10,10 +10,12 @@ This is where user info goes.
 <a href="/users/<%= @user.id %>/edit">Edit profile</a>
 
 <form action="/users" method="post"> 
-  <p>Press Submit to delete your profile</p>
+  
   <input type="hidden" name="_method" value="delete">
   <input type="hidden" name="user_id" value="<%= @user.id %>">
-  <input type="submit" value="submit">
+  <input type="submit" value="delete profile">
 </form>
 
-<a href = "/users/<%= @user.id %>/stories/new"> Add a story </a>
+<p><a href = "/users/<%= @user.id %>/stories/new"> Add a story </a></p>
+<a href = "/users/<%= @user.id %>/stories">View all stories </a>
+

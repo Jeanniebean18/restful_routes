@@ -4,5 +4,10 @@ lists stories for a particular user.
 <%@user.stories.each do |story| %>
 <p><%= story.name %><p>
   <p><%= story.content %><p>
+    <a href = "/stories/<%= story.id %>/edit"> Edit story</a>
+    <form action="/stories/<%= story.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
     <% end %>
 

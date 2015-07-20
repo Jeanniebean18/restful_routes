@@ -21,8 +21,8 @@ post "/stories" do
   end
 end
 
-get "/users/:id/stories/edit" do
-  @user = User.find(params[:id])
+get "/stories/:id/edit" do
+  @story = Story.find(params[:id])
   erb :"stories/edit"
 end
 
@@ -31,11 +31,11 @@ put "/stories/:id" do
   @story.name = params[:name]
   @story.content = params[:content]
   @story.save
-  redirect "users/#{params[:user_id]}/stories"
+  redirect "users/#{@story.user_id}/stories"
 end
 
-delete "stories/:user_id/:story_id" do
+delete "/stories/:story_id" do
   @story = Story.find(params[:story_id])
   @story.destroy
-  redirect "users/#{params[:user_id]}/stories"
+  redirect "users/#{@story.user_id}/stories"
 end

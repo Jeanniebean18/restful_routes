@@ -33,14 +33,13 @@ put "/users/:id" do
   redirect "users/#{@user.id}"
 end
 
-get "users/delete" do
+get "/users/delete" do
   erb :"users/delete"
 end
 
 delete "/users" do
   @user = User.find(params[:user_id])
   @user.destroy
-  
   redirect "/users"
 end
 
