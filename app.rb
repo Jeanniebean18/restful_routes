@@ -57,4 +57,3 @@ require_relative "controllers/stories.rb"
 # Database
 require_relative "database_setup.rb"
 
-

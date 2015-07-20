@@ -3,6 +3,7 @@ get "/users" do
 end
 
 get "/users/new" do
+  @user = User.new
   erb :"users/new"
 end
 
@@ -10,7 +11,7 @@ post "/users" do
   the_password = BCrypt::Password.create(params[:password])
   @user = User.create({name: params[:name], email: params[:email], password: the_password})
   if @user.valid?
-    redirect "users/@user.id"
+    redirect "users/#{@user.id}"
   else
     @error = true
     erb :"users/new"
@@ -29,7 +30,7 @@ put "/users/:id" do
   
   @user.save
   
-  redirect "users/@user.id"
+  redirect "users/#{@user.id}"
 end
 
 get "users/delete" do
@@ -37,13 +38,13 @@ get "users/delete" do
 end
 
 delete "/users" do
-  @user = User.find(params[:id])
+  @user = User.find(params[:user_id])
   @user.destroy
   
   redirect "/users"
 end
 
-get "users/:id" do
+get "/users/:id" do
   @user = User.find(params[:id])
-  erb :"user/show"
+  erb :"users/show"
 end

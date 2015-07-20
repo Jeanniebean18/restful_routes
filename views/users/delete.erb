@@ -1,7 +1,0 @@
-<form action="/users" method="post">
-  <select name="id"> <% User.all.each do |user| %>
-    <option value= "<%= user.id %>"> <%= user.name %></option>
-    <% end %>
-  </select>
-  <input type= "hidden" name="_method" value="delete">
-</form>

@@ -1,2 +1,18 @@
 This is where user info goes.
 
+<h1><%= @user.name %></h1>
+
+<p><%= @user.email %></p>
+
+<p><%= @user.stories %></p>
+
+
+<a href="/users/<%= @user.id %>/edit">Edit profile</a>
+
+<form action="/users" method="post"> 
+  <p>Press Submit to delete your profile</p>
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <input type="submit" value="submit">
+</form>
+

@@ -2,4 +2,6 @@
 link to edit user
 link to delete user
 link to add story -->
-This is listing users.
+<% User.all.each do |user| %>
+  <a href="/users/<%= user.id %>"><%= user.name %></a>
+<% end %>
