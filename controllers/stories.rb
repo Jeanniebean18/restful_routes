@@ -10,10 +10,8 @@ get "/users/:id/stories/new" do
 end
 
 post "/stories" do
-  
   @user = User.find(params[:user_id])
   @story = @user.stories.create({name:params[:name], content:params[:content]})
-  binding.pry
   if @story.valid?
     redirect "/users/#{@user.id}/stories"
   else
