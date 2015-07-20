@@ -9,6 +9,10 @@ end
 post "/users" do
   the_password = BCrypt::Password.create(params[:password])
   @user = User.create({name: params[:name], email: params[:email], password: the_password})
-  
-  redirect "users/:id"
+  if @user.valid?
+    redirect "users/:id"
+  else
+    @error = true
+    erb :"users/new"
+  end
 end
