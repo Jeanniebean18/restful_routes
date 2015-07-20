@@ -1,16 +1,19 @@
-get "users/:id/stories" do
+get "/users/:id/stories" do
   @user = User.find(params[:id])
   erb :"stories/stories"
 end
 
 get "/users/:id/stories/new" do
+  @story = Story.new
   @user = User.find(params[:id])
   erb :"stories/new"
 end
 
 post "/stories" do
+  
   @user = User.find(params[:user_id])
   @story = @user.stories.create({name:params[:name], content:params[:content]})
+  binding.pry
   if @story.valid?
     redirect "/users/#{@user.id}/stories"
   else

@@ -1,2 +1,8 @@
 lists stories for a particular user.
 
+
+<%@user.stories.each do |story| %>
+<p><%= story.name %><p>
+  <p><%= story.content %><p>
+    <% end %>
+
