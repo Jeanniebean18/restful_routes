@@ -45,5 +45,10 @@ end
 
 get "/users/:id" do
   @user = User.find(params[:id])
-  erb :"users/show"
+  
+  if session[:user_id] == @user.id
+    erb :"users/show"
+  else
+    redirect "/users"
+  end
 end
