@@ -52,6 +52,7 @@ ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 
 require_relative "controllers/users.rb"
 require_relative "controllers/stories.rb"
+require_relative "controllers/main.rb"
 
 
 # Database
